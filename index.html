@@ -1,0 +1,758 @@
+<!DOCTYPE html>
+<html lang="en">
+    <!-- 
+WELCOME USER! You've reached the source code for a manual created by STS. If you plan on updating or editing this manual, then you're in the right place!
+
+Before editing this manual, please read through the manual editing guide at https://sts.doit.wisc.edu/manuals/manual-editing-guide/ and follow its recommendations. It is important that we adhere to the conventions set in the guide in order to maintain quality and consistency across all manuals.
+
+A few things to note:
+
+* In order to have a working preview with accurate CSS and functional JavaScript, you will need a copy of the /master-files folder in the same parent directory as the folder with your manual editing files in it, e.g. if you have a folder on your desktop "STS Manuals", and you're editing the Excel 1 manual in the "excel1" folder and the Photoshop 1 folder in the "photoshop1" folder, you will need to have the "master-files" folder in "STS Manuals" as well, since the manual files link to the CSS/Javascript using relative links. Your folder will look like this: 
+
+├STS Manuals 
+├╴╴excel1
+├╴╴╴╴╴images
+├╴╴╴╴╴class_files
+├╴╴master-files
+├╴╴photoshop1
+├╴╴╴╴╴images
+├╴╴╴╴╴class_files
+
+
+* Manuals should be arranged into Topics, which are enclosed in the <section class="topic"> tag, and followed immediately by an <h1> tag with the topic name in it, e.g.
+
+<section class="topic">
+<h1>Topic name</h1>
+<p>Neat and helpful information goes here</p>
+</section>
+
+The <section class="topic"> and following <h1> element are how the manual's JavaScript automagically builds the Topics outline and creates the links, so if they are not there, the manual will be without a table of contents and its friends will probably make fun of it (which is decidedly not cool).
+
+* Unless you are changing the contents of the <title></title> tag, you should not have to touch the <head> portion of this document (unless instructed to do so). This tag connects the HTML to the CSS and JavaScript that keep the manual functioning. Look for the comment tag that says "MAIN CONTENT", and you may edit there.
+
+
+Good luck, and have fun!
+
+-->
+    <head>
+
+        <!-- Manual title -->
+        <title>Python 3 Part 2</title>
+        <meta charset="utf-8">
+        <meta name="description" content="Software manual provided by Software Training for Students at the University of Wisconsin.">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel='stylesheet' id='uwmadison-fonts-css'  href='https://brand.wisc.edu/content/themes/uw-theme/dist/fonts/uw160/fonts.css?ver=1.1.1' type='text/css' media='all' /><link rel="stylesheet" type="text/css" href="../master-files/css/stylesheet.css">
+        <script src="../master-files/highlight.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+        <script src="../master-files/smooth-scroll.js"></script>
+        <script src="../master-files/primary-functions.js"></script>
+        <script src="../master-files/ga.js"></script>
+    </head>
+    <body>
+        <!-- begin front page -->
+
+        <div class="manual-front-page">
+            <div id="coverpage-title">
+                <h1>Python 3 Part 2</h1>
+                <h2>Classes and object oriented programming</h2>
+            </div>
+            <div id="about-page"> 
+				<div id="coverpage-description">
+					<img src="https://wwwtest.sts.doit.wisc.edu/manuals/master-files/uwlogo.png" alt="UW-Madison Crest with the name of Academic Technology next to it">
+					<p>Written, designed, and produced by:</p>
+					<p>Software Training for Students</p>
+				</div>
+
+				<h1 class="no-top-margin">About Software Training for Students</h1>
+				<p>Software Training for Students is an organization on campus that provides free software training to all students and faculty. Our services include custom workshops, open-enrollment classes, one-on-one project help, and access to Lynda.com. For more information on the Software Training for Students (STS) program, visit our website at <strong><a href="http://wisc.edu/sts">wisc.edu/sts</a></strong>.</p>
+
+				<div class="full-width-image">
+					<a href="https://wisc.edu/sts/" target="_blank"><img src="https://wwwtest.sts.doit.wisc.edu/manuals/master-files/sts-services.png" alt="The services offered by Software Training for Students"></a>
+				</div>
+				<p>STS is part of the Division of Information Technology (DoIT) - Academic Technology at UW-Madison. For more information regarding DoIT Academic Technology, visit <strong><a href="https://at.doit.wisc.edu/">at.doit.wisc.edu</a></strong>.</p>
+			</div>
+		</div>
+        <div id="outline"></div>
+
+       
+        <!-- MAIN CONTENT -->
+        
+        <!-- 
+        Each topic should be enclosed in a <section> tag with a class "topic", e.g. and should have the first element in the topic be an H1 tag, like so:
+        
+        <section class="topic">
+            <h1>Title</h1>
+            <p>Topic content</p>
+        </section>
+        
+        When built in this way, the topic outline gets automatically built (with links!) when the manual is opened in a web browser, via the magic of Javascript.
+        
+        -->
+        
+		<section class="topic">
+        <h1>Introduction</h1>
+		<p>Welcome to the second Python course! This course is designed to help teach Object Oriented Programming
+		and its corresponding syntax in Python.</p>
+		
+		<p>This course assumes you have a basic understanding of procedural programming in Python 
+		as taught in the preceding course.</p>
+        </section>
+		
+		<section class="topic">
+		<h1>Learning Outcomes</h1>
+		<p>By the end of this course, you should be able to:</p>
+		
+		<ul>
+			<li>Describe what a class is and its purpose in programming.</li>
+			<li>Understand the is-a vs has-a relationship types.</li>
+			<li>Understand encapsulation and inheritance.</li>
+			<li>Describe the meaning of polymorphism and why it's useful.</li>
+			<li>Use Object Oriented Programming to more efficiently accomplish programming tasks.</li>
+			<li>Install external Python modules.</li>
+			<li>Create your own Python modules.</li>
+		</ul>
+		
+		</section>
+        
+        <section class="topic">
+        <h1>What is Object Oriented Programming?</h1>
+		
+		<p>Object Oriented Programming is a very useful construct and its immense popularity follows as a result. 
+		An understanding of OOP is indispensable in today's programming scene.</p>
+		
+		<p>Object oriented programming can be very similar in implementation to procedural programming, 
+		but as we will see, it comes with new syntax adding a layer of abstraction and improving compartmentalization.</p>
+		
+		<p>Grouping data and methods.</p>
+		<h2>Procedural Programming</h2>
+		
+		<p>Discussed in the previous course, procedural programming is a very simple and effective 
+		method of writing code. However, there are limitations to its capabilities.</p>
+		
+		<!--
+		<pre>
+<code>#A recursive function to calculate the nth fibonacci number
+def fibonacci(n):
+  if(n <= 1):
+    return n
+  else:
+    return fibonacci(n - 1) + fibonacci(n - 2)
+		
+fib = fibonacci(50)
+
+print(fib)</code>
+		</pre>
+		-->
+		<iframe height="400px" width="100%" src="https://repl.it/@ALEXANDERLEHMKU/Recursive-Fibonacci-Example?lite=true" scrolling="no" frameborder="no" allowtransparency="true" allowfullscreen="true" sandbox="allow-forms allow-pointer-lock allow-popups allow-same-origin allow-scripts allow-modals"></iframe>
+		
+		<p>Let's say you have a ball and you want to keep track of its x, y, and z locations.
+		Using strictly procedural programming and the existing simple data types, you would have 
+		to write something like this:</p>
+		
+		<!--
+		<pre>
+<code>from math import sqrt
+		
+#Increments a position
+def move(x):
+  x += 1
+  return x
+		
+#Ball properties
+ballX = 0
+ballY = 0
+ballZ = 0
+
+for i in range(32):
+  #Format string for easy printing.
+  print("Ball Position: x=%d, y=%d, z=%d" % (ballX, ballY, ballZ))
+  ballX = move(ballX)
+  ballY = move(ballY)
+  ballZ = move(ballZ)
+	
+#Print the distance from the start position
+#Uses the Pythagorean theorem
+print("\nThe ball ended up %d meters away from where it started." % sqrt(ballX**2 + ballY**2 + ballZ**2))</code>
+		</pre>
+		-->
+		<iframe height="400px" width="100%" src="https://repl.it/@ALEXANDERLEHMKU/Procedural-Ball-Example?lite=true" scrolling="no" frameborder="no" allowtransparency="true" allowfullscreen="true" sandbox="allow-forms allow-pointer-lock allow-popups allow-same-origin allow-scripts allow-modals"></iframe>
+		
+		<p>While the above example might not be that terrible, in a real program, the ball may have an image associated with it, 
+		as well as a width, height, depth, velocity, acceleration, jerk, mass, the original x, y, and z 
+        locations, and even more.</p>
+
+        </section>
+        
+        <section class="topic">
+		<h1>Objects</h1>
+        
+        <p>Seeing how messy strictly procedural programming can get, this is where Object Oriented Programming shines. 
+        With OOP, you can group variables and functions together into a "blueprint" or "skeleton"-like structure which you can then 
+        build "objects" from. Essentially, you're creating a data type that has multiple "member variables" or "fields" with each instance this type having
+        its own unique values.</p>
+        
+        <img src="images/OOP_Example.jpg" alt="Items can be broken down into attributes and actions."></img>
+        
+        <h2>Structures</h2>
+		
+		<p>One thing that Python lets us do is group variables together into a single structure, which is 
+		very helpful when it comes to organization. This is called a "class".</p>
+		
+		<pre>
+<code>#Creating a Ball class
+class Ball:
+  #Ball attributes
+  x = 0
+  y = 0
+  z = 0
+  
+#Creating a new instance of a Ball
+#Similar looking to a function call
+ball = Ball()
+
+print("The ball's position: x=%d, y=%d, z=%d" % (ball.x, ball.y, ball.z))
+</code>
+		</pre>
+		
+		<p>Perhaps you want to be able to choose where the ball starts. To do so, we need to add a 
+		"constructor". A constructor is a function within a class that is run whenever a new
+		instance of that class is created. In python the syntax might look a bit cryptic,
+		but its really just like any other function, just with a strange name. It takes the parameter
+		"self", which can be any name that you want, but it is conventionally "self" to avoid
+		confusion. The "self" parameter is a reference to the ball object that is being created,
+		thus the name "self".</p>
+		
+		<pre>
+<code>#Creating a Ball class
+class Ball:
+  #Ball attributes
+  x = 0
+  y = 0
+  z = 0
+  
+  #Ball constructor. Runs every time a new ball is created
+  def __init__(self, x, y, z):
+    self.x = x
+    self.y = y
+    self.z = z
+  
+#Creating a new instance of a Ball
+#Similar looking to a function call
+ball = Ball(20, 30, 40)
+
+print("The ball's position: x=%d, y=%d, z=%d" % (ball.x, ball.y, ball.z))
+</code>
+		</pre>
+		
+		<div class="good-to-know" style="float: right;">
+			<p>
+				A default argument is an argument that has a default value
+				if no value is specified.
+			</p>
+		</div>
+		
+		<p>It is worth noting that when you create a ball object, you only need to pass the parameters after "self".
+		This is because "self" is automatically passed by the interpreter when you use the <span class="type-text">ball.x</span> (instance.field) syntax. In other programming languages, 
+		"self" is often written as "this" and is an implicit (read hidden) parameter, but in Python, 
+		the parameter is explicit and must be in every method's (a function within a class) declaration.</p>
+		
+		
+		
+		<p>Like every function in Python, constructors can have default arguments. 
+        This is Python's version of "function overloading" (a common feature in other languages).
+        You can use this to specify default values for parameters so that the user need only override what they 
+        want to change.</p>
+		
+		<!--
+		<pre>
+<code>#Creating a Ball class
+class Ball:
+  x = 0
+  y = 0
+  z = 0
+  
+  def __init__(self, x = 0, y = 0, z = 0):
+    self.x = x
+    self.y = y
+    self.z = z
+  
+#Creating a new instance of a Ball
+#Similar looking to a function call
+ball1 = Ball(20, 30, 40)
+
+#Calling the constructor with no arguments
+ball2 = Ball()
+
+print("ball1's position: x=%d, y=%d, z=%d" % (ball1.x, ball1.y, ball1.z))
+print("ball2's position: x=%d, y=%d, z=%d" % (ball2.x, ball2.y, ball2.z))
+</code>
+		</pre>
+		-->
+		<iframe height="400px" width="100%" src="https://repl.it/@ALEXANDERLEHMKU/Structure-Example-Full?lite=true" scrolling="no" frameborder="no" allowtransparency="true" allowfullscreen="true" sandbox="allow-forms allow-pointer-lock allow-popups allow-same-origin allow-scripts allow-modals"></iframe>
+        
+        <h2>Classes</h2>
+        
+        <p>Up until now, we've been using objects entirely as structures (containers for variables), 
+        but we can also have our objects contain functions which are called, "methods". Methods,
+        like constructors, also take the "self" parameter which is used in much the same way.</p>
+        
+        <pre>
+<code>from math import sqrt
+
+#Creating a ball class
+class Ball:
+  x = 0
+  y = 0
+  z = 0
+   
+  #Ball constructor
+  def __init__(self, x, y, z):
+    self.x = x
+    self.y = y
+    self.z = z
+    
+  #Ball method
+  def move(self):
+    self.x += 1
+    self.y += 1
+    self.z += 1
+  
+#Create a new instance of Ball  
+ball = Ball(0, 0, 0)
+
+#Loop 32 times
+for i in range(32):
+  #Format string for easy printing.
+  print("Ball Position: x=%d, y=%d, z=%d" % (ball.x, ball.y, ball.z))
+  #A single function call instead of three
+  ball.move()
+	
+#Print the distance from the start position
+#Uses the Pythagorean theorem
+print("\nThe ball ended up %d meters away from where it started." % sqrt(ball.x**2 + ball.y**2 + ball.z**2))</code>
+        </pre>
+        
+        <p>While this may not look much neater than its original counterpart, once you start using multiple objects
+        there is a significant difference in both readability and succinctness as you can see in the below example.</p>
+        
+		<!--
+        <pre>
+<code>from math import sqrt
+from random import randint
+
+#Creating a ball class
+class Ball:
+  x = 0
+  y = 0
+  z = 0
+  
+  origX = 0
+  origY = 0
+  origZ = 0
+   
+  def __init__(self, x, y, z):
+    self.x = x
+    self.y = y
+    self.z = z
+    self.origX = x
+    self.origY = y
+    self.origZ = z
+    
+  def move(self):
+    #Move a random amount between 0 and 5 meters
+    self.x += randint(0, 5)
+    self.y += randint(0, 5)
+    self.z += randint(0, 5)
+    
+  def printPosition(self):
+    print("This ball's position: x=%d, y=%d, z=%d" % (self.x, self.y, self.z))
+
+  def printDistanceTravelled(self):
+    #Calculate distance from origin
+    distX = abs(self.x - self.origX)
+    distY = abs(self.y - self.origY)
+    distZ = abs(self.z - self.origZ)
+
+    #Print hypotenuse
+    print("This ball ended up %d meters away from where it started." % sqrt(distX**2 + distY**2 + distZ**2))
+    
+  
+#Create new instances of Ball  
+ball1 = Ball(0, 0, 0)
+ball2 = Ball(0, 0, 0)
+ball3 = Ball(10, 20, -30)
+
+#Loop 32 times
+for i in range(32):
+  ball1.printPosition()
+  ball2.printPosition()
+  ball3.printPosition()
+  ball1.move()
+  ball2.move()
+  ball3.move()
+	
+ball1.printDistanceTravelled()
+ball2.printDistanceTravelled()
+ball3.printDistanceTravelled()</code>
+        </pre>
+		-->
+		<iframe height="400px" width="100%" src="https://repl.it/@ALEXANDERLEHMKU/Full-Object-Oriented-Ball-Example?lite=true" scrolling="no" frameborder="no" allowtransparency="true" allowfullscreen="true" sandbox="allow-forms allow-pointer-lock allow-popups allow-same-origin allow-scripts allow-modals"></iframe>
+        
+        </section>
+		
+		<section class="topic">
+        <h1>Encapsulation vs Inheritance</h1>
+		
+		<p>When creating objects, there are two main ways to organize the code amongst them.
+		One method is known as "Encapsulation", the other, "Inheritance". We'll first go into encapsulation, then 
+		take a look at inheritance.</p>
+		
+		<div class="good-to-know" style="float:right;">
+		<p>Keyword arguments are arguments that are explicitly referenced when the function is called such as in the 
+		<span class="type-text">moveBall(x = 50)</span> example.</p>
+		</div>
+		
+		<h2>Encapsulation</h2>
+		
+		
+		
+		<p>When creating objects, we can put variables inside of them called, "fields". 
+		You may be wondering if we can put objects inside of our objects, and the answer is yes.
+		This concept is called encapsulation.</p>
+		
+		
+		<!--
+		<pre>
+<code>#Create a ball class
+class Ball:
+  x = 0
+  y = 0
+  z = 0
+
+  #A function that moves the player's ball
+  def moveBall(self, x = 0, y = 0, z = 0):
+    self.x += x
+    self.y += y
+    self.z += z
+
+#Create a player class
+class Player:
+  #The player has a ball
+  ball = Ball()
+
+  #A function to throw the player's ball
+  def throwBall(self):
+    #Uses keyword arguments
+    self.ball.moveBall(x = 50)
+
+#Create a new player
+player = Player()
+
+#Have the player throw his ball
+player.throwBall()
+
+#Print the player's ball's new position
+print(player.ball.x)</code>
+			</pre>
+		-->
+		
+		<iframe height="400px" width="100%" src="https://repl.it/@ALEXANDERLEHMKU/Encapsulation-Full-Example?lite=true" scrolling="no" frameborder="no" allowtransparency="true" allowfullscreen="true" sandbox="allow-forms allow-pointer-lock allow-popups allow-same-origin allow-scripts allow-modals"></iframe>
+		
+		<h2>Inheritance</h2>
+		
+		<p>Now that we've seen encapsulation, it's time to take a look at inheritance. With inheritance, we can
+		use the methods and fields of a "parent" class within a "child" class that inherits from it.</p>
+		
+		<p>Imagine you have a "Vehicle" class which perhaps has some fields like "position" and "speed". With inheritance,
+		we can create a "Bicycle" class which inherits from "Vehicle" and consequently, does not need to define those
+		fields, but instead only the fields specific to a bicycle.</p>
+		
+		<img src="images/vehicles_classification.png" alt="Classes can be categorized and inherit traits from their category."></img>
+		
+		<p>In Python, inheritance can be achieved by putting the name of the class you want your subclass 
+		to inherit from in parenthesis after the declaration of the subclass much like defining parameters of a function. 
+		Here is a simple example using inheritance.</p>
+		
+		<!--
+		<pre>
+<code>#Create a ball class
+class Ball:
+  x = 0
+  y = 0
+  z = 0
+
+  #A function that moves the player's ball
+  def moveBall(self, x = 0, y = 0, z = 0):
+    self.x += x
+    self.y += y
+    self.z += z
+
+#Create a beach ball class
+#The beach ball is a ball
+class BeachBall(Ball):
+  color = "blue"
+
+#Create a new beachBall
+beachBall = BeachBall()
+
+#Have the beachBall move
+beachBall.moveBall(5,5,5)
+
+#Print the beach ball's new position
+print(beachBall.x)
+
+#Print the beach ball's color
+print(beachBall.color)</code>
+		</pre>
+		-->
+		<iframe height="400px" width="100%" src="https://repl.it/@ALEXANDERLEHMKU/Inheritance-Full-Example?lite=true" scrolling="no" frameborder="no" allowtransparency="true" allowfullscreen="true" sandbox="allow-forms allow-pointer-lock allow-popups allow-same-origin allow-scripts allow-modals"></iframe>
+		
+		<h2>"Is a" vs "Has a" relationship.</h2>
+		
+		<p>Now that we've talked about both encapsulation and inheritance, it is important to make the distinction
+		between the "Is a" vs the "Has a" relationship. The "Is a" relationship is used when a class derives from a
+		superclass, while the "Has a" relationship pertains to encapsulation.</p>
+		
+		<p>When deciding whether to use encapsulation or inheritance, ask yourself whether the object "Is"
+		or "Has" another object. For example: a bicycle <strong>is a</strong> vehicle, but it <strong>has a</strong> seat.</p>
+        </section>
+		
+		<section class="topic">
+		<h1>Polymorphism</h1>
+		
+		<p>Polymorphism is a helpful trait of object oriented programming in Python. Essentially, polymorphism is the
+		ability to call methods specific to each class that is being referred to while not having to change your code.</p>
+		
+		<h2>Method Overriding</h2>
+		
+		<p>As we learned, when a class inherits from another class, it gains all of the methods and fields of the class that it inherited 
+		from. However, there may be scenarios in which you may want to change some of the parent's functionality 
+		in the child class. This can be accomplished through a process called method overriding.</p>
+		
+		<p>Overriding is achieved by naming the child class' method the same as the parent class'. When this occurs, 
+		the interpreter uses the child's implementation of the method, and ignores the parent's.</p>
+		
+		<pre>
+<code>#Create parent class Ball
+class Ball:
+  #Old roll method
+  def roll(self):
+    print("Ball's roll")
+
+#Create a child class
+class BowlingBall(Ball):
+  #Override the old roll method
+  def roll(self):
+    print("Bowling ball's roll")
+
+#Create a new instance of a bowling ball
+ball = BowlingBall()
+
+#Call the bowling ball's roll method
+ball.roll()</code>
+		</pre>
+		
+		
+		<p>Often there are times where you want to override a method, but still be able to use the parent's method. 
+		There are a few ways to accomplish this. One way is to use Python's <span class="type-text">super()</span> proxy object 
+		which returns a reference to the parent class with respect to the current object that we can then use to call the 
+		parent class' methods. The other is to directly specify the name of the class 
+		that you want to call the method of, followed by the method name and passing it a reference to the current instance 
+		that you want the operations performed on.</p>
+		
+		<!--
+		<pre>
+<code>#Create parent class Ball
+class Ball:
+  posX = 0
+  posY = 0
+  #Old roll method
+  def roll(self):
+    print("Ball's roll")
+
+#Create a child class
+class BowlingBall(Ball):
+  #Override the old roll method
+  def roll(self):
+    #Call the old method using the super function and calling
+    super().roll()
+	
+#Create a child class
+class GolfBall(Ball):
+  #Override the old roll method
+  def roll(self):
+    #Call the old method using the parent class name and passing the self parameter
+    Ball.roll(self)
+
+#Create a new instance of a bowling ball
+bBall = BowlingBall()
+
+#Create a new instance of a golf ball
+gBall = GolfBall()
+
+#Call the bowling ball's roll method
+bBall.roll()
+
+#Call the golf ball's roll method
+gBall.roll()</code>
+		</pre>
+		-->
+		
+		<iframe height="400px" width="100%" src="https://repl.it/@ALEXANDERLEHMKU/Override-Full-Example?lite=true" scrolling="no" frameborder="no" allowtransparency="true" allowfullscreen="true" sandbox="allow-forms allow-pointer-lock allow-popups allow-same-origin allow-scripts allow-modals"></iframe>
+		
+		<p>Essentially, if you want to call the parent classes method in your child method you can do 
+		<span class="type-text">super().parentMethod()</span>,
+		Or you can explicitly call <span class="type-text">ParentClass.parentMethod(self)</span></p>
+		
+		<h2>Polymorphic Functions</h2>
+		
+		<p>Let's suppose you have a function which takes an instance of a class containing a "roll" method. 
+		In Python, we can simply call the "roll" method on whatever is passed into the function, and if it has a 
+		"roll" method, the method will be called, otherwise and exception will be thrown.</p>
+		
+		<pre>
+<code>#Create parent class Ball
+class Ball:
+  #Old roll method
+  def roll(self):
+    print("Ball's roll")
+
+#Create a child class
+class BowlingBall(Ball):
+  #Override the old roll method
+  def roll(self):
+    print("Bowling ball's roll")
+	
+def rollIt(rollable):
+  rollable.roll()
+
+#Create a new instance of a bowling ball
+bBall = BowlingBall()
+
+#Create a new instance of a ball
+ball = Ball()
+
+#Call rollIt with each rollable object
+rollIt(bBall)
+rollIt(ball)</code>
+		</pre>
+		
+		<p>While this is a very useful technique, it can cause problems as soon as we pass it something that does 
+		not have a roll method. In that case, it will throw an exception. If we wanted to check for that case programmatically,
+		Python has a function called <span class="type-text">hasattr(object, name)</span> which we can use to check if an object 
+		has the method that we are trying to call before we try to call it.</p>
+		
+		<!--
+		<pre>
+<code>#Create parent class Ball
+class Ball:
+  #Old roll method
+  def roll(self):
+    print("Ball's roll")
+
+#Create a non-rollable class
+class Cube:
+  def notRoll():
+    print("I can't roll!")
+	
+def rollIt(rollable):
+  if(hasattr(rollable, "roll")):
+    rollable.roll()
+  else:
+    print("Object not rollable!")
+
+#Create a new instance of a ball
+ball = Ball()
+
+#Create a new instance of a cube
+cube = Cube()
+
+#Call rollIt with each object
+rollIt(ball)
+rollIt(cube)</code>
+		</pre>
+		-->
+		<iframe height="400px" width="100%" src="https://repl.it/@ALEXANDERLEHMKU/Polymorphic-Functions-Full-Example?lite=true" scrolling="no" frameborder="no" allowtransparency="true" allowfullscreen="true" sandbox="allow-forms allow-pointer-lock allow-popups allow-same-origin allow-scripts allow-modals"></iframe>
+		
+		</section>
+        
+        <section class="topic">
+        <h1>Modules</h1>
+		
+		<p>Modules are the Python version of "libaries" which are, essentially, files containing code that you
+		or someone else wrote that can be used within other Python programs.</p>
+		
+		<h2>Creating Your Own Modules</h2>
+		
+		<p>When it comes to creating your own modules in Python, it's actually quite simple. Simply create a 
+		Python file (<span class="type-text">*.py</span>) and refer to it from another file based on its relative directory.</p>
+		
+		<p>For instance, if you've created a file named <span class="type-text">Toys.py</span> containing a class 
+		<span class="type-text">Ball</span> with a method <span class="type-text">moveBall</span>, and this file is 
+		located in a subdirectory named <span class="type-text">lib</span>, there are several ways you could link
+		this file to your program. Below are some examples.</p>
+		
+		<pre>
+<code>#Imports the Toys module from the lib directory
+from lib import Toys
+
+ball = Toys.Ball()</code>
+		</pre>
+		
+		<pre>
+<code>#imports the Ball class from lib.Toys
+from lib.Toys import Ball
+
+ball = Ball()</code>
+		</pre>
+		
+		<pre>
+<code>#Imports everything from lib.Toys
+from lib.Toys import *
+
+ball = Ball()</code>
+		</pre>
+		
+		<p>If your module is in the current directory of the program that you're running, you need only 
+		<span class="type-text">import [module_name]</span></p>
+		
+		<p>Below is an example of module usage:</p><br/>
+		
+		<iframe height="400px" width="100%" src="https://repl.it/@ALEXANDERLEHMKU/Custom-Module-Example?lite=true" scrolling="no" frameborder="no" allowtransparency="true" allowfullscreen="true" sandbox="allow-forms allow-pointer-lock allow-popups allow-same-origin allow-scripts allow-modals"></iframe>
+		
+		
+		<!--<p>The if __name__ == "__main__": trick.</p>-->
+		
+		<!--<h2>Getting more modules (downloading and installing libraries)</h2>-->
+		
+		<h2>PIP</h2>
+		
+		<p>PIP is a great resource for installing Python libraries, and if you're running Python 2 >= 2.7.9 or 
+		Python 3 >= 3.4, it comes pre-installed.</p>
+		
+		<p>To use PIP, simply open the command prompt and type <span class="type-text">pip install [name of library]</span></p>
+		<p>PIP will automatically try to find the library that you typed and install it so that you jump right in and use it immediately.</p>
+        
+        </section>
+		
+		<section class="topic">
+		<h1>Conclusion</h1>
+		
+		<p>You did it! You reached the end of the second Python manual. Give yourself a pat on the back, you deserve it.
+		You should now know how to use Object Oriented Programming in your code as well as creating and installing modules to 
+		enhance your coding experience.</p>
+		
+		<p>If you have any questions, feel free to check out the Python help page at <a href="https://www.python.org/about/help/">https://www.python.org/about/help/</a>
+		or the Lynda.com page at <a href="https://www.lynda.com/Python-training-tutorials/415-0.html">https://www.lynda.com/Python-training-tutorials/415-0.html</a>.
+		If you have any further questions, STS has free one-on-one consultation services available for any problems you might encounter.</p>
+		
+		<p>Here is a simple example of a hangman game that uses the concepts we learned today. Why not play around with it and see how you could make it better?</p><br/>
+		
+		<iframe height="400px" width="100%" src="https://repl.it/@ALEXANDERLEHMKU/SimpleHangmanExample?lite=true" scrolling="no" frameborder="no" allowtransparency="true" allowfullscreen="true" sandbox="allow-forms allow-pointer-lock allow-popups allow-same-origin allow-scripts allow-modals"></iframe>
+		
+		</section>
+		
+        <!-- END MAIN CONTENT -->
+    </body>
+
+</html>
