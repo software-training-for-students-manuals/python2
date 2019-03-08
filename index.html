@@ -1,43 +1,16 @@
 <!DOCTYPE html>
 <html lang="en">
-    <!-- 
+<!-- 
 WELCOME USER! You've reached the source code for a manual created by STS. If you plan on updating or editing this manual, then you're in the right place!
 
-Before editing this manual, please read through the manual editing guide at https://sts.doit.wisc.edu/manuals/manual-editing-guide/ and follow its recommendations. It is important that we adhere to the conventions set in the guide in order to maintain quality and consistency across all manuals.
-
-A few things to note:
-
-* In order to have a working preview with accurate CSS and functional JavaScript, you will need a copy of the /master-files folder in the same parent directory as the folder with your manual editing files in it, e.g. if you have a folder on your desktop "STS Manuals", and you're editing the Excel 1 manual in the "excel1" folder and the Photoshop 1 folder in the "photoshop1" folder, you will need to have the "master-files" folder in "STS Manuals" as well, since the manual files link to the CSS/Javascript using relative links. Your folder will look like this: 
-
-├STS Manuals 
-├╴╴excel1
-├╴╴╴╴╴images
-├╴╴╴╴╴class_files
-├╴╴master-files
-├╴╴photoshop1
-├╴╴╴╴╴images
-├╴╴╴╴╴class_files
-
-
-* Manuals should be arranged into Topics, which are enclosed in the <section class="topic"> tag, and followed immediately by an <h1> tag with the topic name in it, e.g.
-
-<section class="topic">
-<h1>Topic name</h1>
-<p>Neat and helpful information goes here</p>
-</section>
-
-The <section class="topic"> and following <h1> element are how the manual's JavaScript automagically builds the Topics outline and creates the links, so if they are not there, the manual will be without a table of contents and its friends will probably make fun of it (which is decidedly not cool).
-
-* Unless you are changing the contents of the <title></title> tag, you should not have to touch the <head> portion of this document (unless instructed to do so). This tag connects the HTML to the CSS and JavaScript that keep the manual functioning. Look for the comment tag that says "MAIN CONTENT", and you may edit there.
-
+Before editing any STS manuals, please read through the editing guide at https://sts.doit.wisc.edu/manual-editing-guide and follow all recommendations. It is important that we follow the conventions set in the guide in order to maintain quality and consistency across all of our training materials.
 
 Good luck, and have fun!
-
 -->
     <head>
 
         <!-- Manual title -->
-        <title>Python 3 Part 2</title>
+        <title>Python Intermediate: Object Oriented Programming</title>
         <meta charset="utf-8">
         <meta name="description" content="Software manual provided by Software Training for Students at the University of Wisconsin.">
         <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -53,7 +26,7 @@ Good luck, and have fun!
 
         <div class="manual-front-page">
             <div id="coverpage-title">
-                <h1>Python 3 Part 2</h1>
+                <h1>Python Intermediate: Object Oriented Programming</h1>
                 <h2>Classes and object oriented programming</h2>
             </div>
             <div id="about-page"> 
@@ -144,7 +117,7 @@ fib = fibonacci(50)
 print(fib)</code>
 		</pre>
 		-->
-		<iframe height="400px" width="100%" src="https://repl.it/@ALEXANDERLEHMKU/Recursive-Fibonacci-Example?lite=true" scrolling="no" frameborder="no" allowtransparency="true" allowfullscreen="true" sandbox="allow-forms allow-pointer-lock allow-popups allow-same-origin allow-scripts allow-modals"></iframe>
+		<iframe height="800px" width="100%" src="https://repl.it/@ALEXANDERLEHMKU/Recursive-Fibonacci-Example?lite=true" scrolling="no" frameborder="no" allowtransparency="true" allowfullscreen="true" sandbox="allow-forms allow-pointer-lock allow-popups allow-same-origin allow-scripts allow-modals"></iframe>
 		
 		<p>Let's say you have a ball and you want to keep track of its x, y, and z locations.
 		Using strictly procedural programming and the existing simple data types, you would have 
@@ -176,7 +149,7 @@ for i in range(32):
 print("\nThe ball ended up %d meters away from where it started." % sqrt(ballX**2 + ballY**2 + ballZ**2))</code>
 		</pre>
 		-->
-		<iframe height="400px" width="100%" src="https://repl.it/@ALEXANDERLEHMKU/Procedural-Ball-Example?lite=true" scrolling="no" frameborder="no" allowtransparency="true" allowfullscreen="true" sandbox="allow-forms allow-pointer-lock allow-popups allow-same-origin allow-scripts allow-modals"></iframe>
+		<iframe height="800px" width="100%" src="https://repl.it/@ALEXANDERLEHMKU/Procedural-Ball-Example?lite=true" scrolling="no" frameborder="no" allowtransparency="true" allowfullscreen="true" sandbox="allow-forms allow-pointer-lock allow-popups allow-same-origin allow-scripts allow-modals"></iframe>
 		
 		<p>While the above example might not be that terrible, in a real program, the ball may have an image associated with it, 
 		as well as a width, height, depth, velocity, acceleration, jerk, mass, the original x, y, and z 
@@ -289,7 +262,7 @@ print("ball2's position: x=%d, y=%d, z=%d" % (ball2.x, ball2.y, ball2.z))
 </code>
 		</pre>
 		-->
-		<iframe height="400px" width="100%" src="https://repl.it/@ALEXANDERLEHMKU/Structure-Example-Full?lite=true" scrolling="no" frameborder="no" allowtransparency="true" allowfullscreen="true" sandbox="allow-forms allow-pointer-lock allow-popups allow-same-origin allow-scripts allow-modals"></iframe>
+		<iframe height="800px" width="100%" src="https://repl.it/@ALEXANDERLEHMKU/Structure-Example-Full?lite=true" scrolling="no" frameborder="no" allowtransparency="true" allowfullscreen="true" sandbox="allow-forms allow-pointer-lock allow-popups allow-same-origin allow-scripts allow-modals"></iframe>
         
         <h2>Classes</h2>
         
@@ -397,7 +370,7 @@ ball2.printDistanceTravelled()
 ball3.printDistanceTravelled()</code>
         </pre>
 		-->
-		<iframe height="400px" width="100%" src="https://repl.it/@ALEXANDERLEHMKU/Full-Object-Oriented-Ball-Example?lite=true" scrolling="no" frameborder="no" allowtransparency="true" allowfullscreen="true" sandbox="allow-forms allow-pointer-lock allow-popups allow-same-origin allow-scripts allow-modals"></iframe>
+		<iframe height="800px" width="100%" src="https://repl.it/@ALEXANDERLEHMKU/Full-Object-Oriented-Ball-Example?lite=true" scrolling="no" frameborder="no" allowtransparency="true" allowfullscreen="true" sandbox="allow-forms allow-pointer-lock allow-popups allow-same-origin allow-scripts allow-modals"></iframe>
         
         </section>
 		
@@ -457,7 +430,7 @@ print(player.ball.x)</code>
 			</pre>
 		-->
 		
-		<iframe height="400px" width="100%" src="https://repl.it/@ALEXANDERLEHMKU/Encapsulation-Full-Example?lite=true" scrolling="no" frameborder="no" allowtransparency="true" allowfullscreen="true" sandbox="allow-forms allow-pointer-lock allow-popups allow-same-origin allow-scripts allow-modals"></iframe>
+		<iframe height="800px" width="100%" src="https://repl.it/@ALEXANDERLEHMKU/Encapsulation-Full-Example?lite=true" scrolling="no" frameborder="no" allowtransparency="true" allowfullscreen="true" sandbox="allow-forms allow-pointer-lock allow-popups allow-same-origin allow-scripts allow-modals"></iframe>
 		
 		<h2>Inheritance</h2>
 		
@@ -506,7 +479,7 @@ print(beachBall.x)
 print(beachBall.color)</code>
 		</pre>
 		-->
-		<iframe height="400px" width="100%" src="https://repl.it/@ALEXANDERLEHMKU/Inheritance-Full-Example?lite=true" scrolling="no" frameborder="no" allowtransparency="true" allowfullscreen="true" sandbox="allow-forms allow-pointer-lock allow-popups allow-same-origin allow-scripts allow-modals"></iframe>
+		<iframe height="800px" width="100%" src="https://repl.it/@ALEXANDERLEHMKU/Inheritance-Full-Example?lite=true" scrolling="no" frameborder="no" allowtransparency="true" allowfullscreen="true" sandbox="allow-forms allow-pointer-lock allow-popups allow-same-origin allow-scripts allow-modals"></iframe>
 		
 		<h2>"Is a" vs "Has a" relationship.</h2>
 		
@@ -599,7 +572,7 @@ gBall.roll()</code>
 		</pre>
 		-->
 		
-		<iframe height="400px" width="100%" src="https://repl.it/@ALEXANDERLEHMKU/Override-Full-Example?lite=true" scrolling="no" frameborder="no" allowtransparency="true" allowfullscreen="true" sandbox="allow-forms allow-pointer-lock allow-popups allow-same-origin allow-scripts allow-modals"></iframe>
+		<iframe height="800px" width="100%" src="https://repl.it/@ALEXANDERLEHMKU/Override-Full-Example?lite=true" scrolling="no" frameborder="no" allowtransparency="true" allowfullscreen="true" sandbox="allow-forms allow-pointer-lock allow-popups allow-same-origin allow-scripts allow-modals"></iframe>
 		
 		<p>Essentially, if you want to call the parent classes method in your child method you can do 
 		<span class="type-text">super().parentMethod()</span>,
@@ -673,14 +646,14 @@ rollIt(ball)
 rollIt(cube)</code>
 		</pre>
 		-->
-		<iframe height="400px" width="100%" src="https://repl.it/@ALEXANDERLEHMKU/Polymorphic-Functions-Full-Example?lite=true" scrolling="no" frameborder="no" allowtransparency="true" allowfullscreen="true" sandbox="allow-forms allow-pointer-lock allow-popups allow-same-origin allow-scripts allow-modals"></iframe>
+		<iframe height="800px" width="100%" src="https://repl.it/@ALEXANDERLEHMKU/Polymorphic-Functions-Full-Example?lite=true" scrolling="no" frameborder="no" allowtransparency="true" allowfullscreen="true" sandbox="allow-forms allow-pointer-lock allow-popups allow-same-origin allow-scripts allow-modals"></iframe>
 		
 		</section>
         
         <section class="topic">
         <h1>Modules</h1>
 		
-		<p>Modules are the Python version of "libaries" which are, essentially, files containing code that you
+		<p>Modules are the Python version of "libraries" which are, essentially, files containing code that you
 		or someone else wrote that can be used within other Python programs.</p>
 		
 		<h2>Creating Your Own Modules</h2>
@@ -719,7 +692,7 @@ ball = Ball()</code>
 		
 		<p>Below is an example of module usage:</p><br/>
 		
-		<iframe height="400px" width="100%" src="https://repl.it/@ALEXANDERLEHMKU/Custom-Module-Example?lite=true" scrolling="no" frameborder="no" allowtransparency="true" allowfullscreen="true" sandbox="allow-forms allow-pointer-lock allow-popups allow-same-origin allow-scripts allow-modals"></iframe>
+		<iframe height="800px" width="100%" src="https://repl.it/@ALEXANDERLEHMKU/Custom-Module-Example?lite=true" scrolling="no" frameborder="no" allowtransparency="true" allowfullscreen="true" sandbox="allow-forms allow-pointer-lock allow-popups allow-same-origin allow-scripts allow-modals"></iframe>
 		
 		
 		<!--<p>The if __name__ == "__main__": trick.</p>-->
@@ -749,7 +722,7 @@ ball = Ball()</code>
 		
 		<p>Here is a simple example of a hangman game that uses the concepts we learned today. Why not play around with it and see how you could make it better?</p><br/>
 		
-		<iframe height="400px" width="100%" src="https://repl.it/@ALEXANDERLEHMKU/SimpleHangmanExample?lite=true" scrolling="no" frameborder="no" allowtransparency="true" allowfullscreen="true" sandbox="allow-forms allow-pointer-lock allow-popups allow-same-origin allow-scripts allow-modals"></iframe>
+		<iframe height="800px" width="100%" src="https://repl.it/@ALEXANDERLEHMKU/SimpleHangmanExample?lite=true" scrolling="no" frameborder="no" allowtransparency="true" allowfullscreen="true" sandbox="allow-forms allow-pointer-lock allow-popups allow-same-origin allow-scripts allow-modals"></iframe>
 		
 		</section>
 		
