@@ -94,6 +94,81 @@ Good luck, and have fun!
 		</section>
         
         <section class="topic">
+        
+            <h1>Useful Tricks</h1>
+            
+            <p>In the previous manual, we looked a the basics of using Python. We learned that Python is a very powerful high level 
+                language and talked about many of its features. In this manual, we'll examine a few more of those features before
+            moving on to the primary topic of Object Oriented Design.</p>
+            
+            <h2>Ternary Expressions</h2>
+            
+            <p>A ternary expression is an expression that takes three operands. Essentially what that means is that there are 3 things
+            will need to keep track of when using a ternary expression. A simple ternary expression can be used as follows:</p>
+            
+            <pre>
+<code>#Using a ternary expression
+starting = True
+
+#Prints Hello because starting is True
+print("Hello" if starting else "Goodbye")
+
+starting = False
+
+#Prints Goodbye because starting is False
+print("Hello" if starting else "Goodbye")
+</code>
+		</pre>
+            
+            <p>This is different than the way that ternary expression are written in many other languages, but it works in much 
+            the same way. All you need is an <span class="type-text">if</span> and an <span class="type-text">else</span> keyword with
+            an expression on the left, a condition in between, and an expression on the right. If the condition evaluates to true, the 
+            expression on the left is the result, but if the condition evaluates to false, then the expression on the right is the result.</p>
+            
+            <h2>List Comprehensions</h2>
+            
+            <p>A list comprehension in Python is a quick and simple way to initialize a list with the values you want in one line of code.
+            This can be very useful if have a simple algorithm that you want to follow to create a list, but it is not wise to use if you
+            have something very complex because it can get difficult to read. The following is an example of a list comprehension:</p>
+            
+            <pre>
+<code>#Using a list comprehension
+#Generates the list [0, 1, 2, 3, 4]
+
+#Comprehension
+myList = [i for i in range(5)]
+
+#Print the list
+print(i)
+
+#Not using a list comprehension
+#Generates the list [0, 1, 2, 3, 4]
+
+#Initialize empty list
+myList = []
+
+#Add items to the list
+for i in range(5):
+    myList.append(i)
+    
+#Print the list
+print(myList)
+</code>
+		</pre>
+            
+            <p>As you can see, it is much shorter than its counterpart which doesn't use this technique, but it might also be difficult
+            to understand if you haven't seen this before. In order to perform a list comprehension, you must have a for loop inside
+            of the list initialization brackets i.e. <span class="type-text">[]</span>. Each iteration of the for loop refers to an
+            entry in the new list. Whichever item you want to be in the list during that iteration you put to the left of the for loop.
+            In this case, I want item <span class="type-text">i</span> in <span class="type-text">range(5)</span> to be the <span class="type-text">ith</span> element of the list.</p>
+            
+            <p>List comprehensions can be used to generate multidimensional lists and have the potential to get very complicated, but for
+            the sake of simpilicity, we'll stop talking about list comprehensions here. If you're are interested in learning more about them,
+            there are many resources available online which can show you much more complicated use cases.</p>
+            
+        </section>
+        
+        <section class="topic">
         <h1>What is Object Oriented Programming?</h1>
 		
 		<p>Object Oriented Programming is a very useful construct and its immense popularity follows as a result. 
