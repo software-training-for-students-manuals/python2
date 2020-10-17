@@ -197,6 +197,8 @@ fib = fibonacci(50)
 print(fib)</code>
 		</pre>
 		-->
+            
+        <br/>
 		<iframe height="800px" width="100%" src="https://repl.it/@ststraining/Recursive-Fibonacci-Example?lite=true" scrolling="no" frameborder="no" allowtransparency="true" allowfullscreen="true" sandbox="allow-forms allow-pointer-lock allow-popups allow-same-origin allow-scripts allow-modals"></iframe>
 		
 		<p>Let's say you have a ball and you want to keep track of its x, y, and z locations.
@@ -229,6 +231,7 @@ for i in range(32):
 print("\nThe ball ended up %d meters away from where it started." % sqrt(ballX**2 + ballY**2 + ballZ**2))</code>
 		</pre>
 		-->
+        <br/>
 		<iframe height="800px" width="100%" src="https://repl.it/@ststraining/Procedural-Ball-Example?lite=true" scrolling="no" frameborder="no" allowtransparency="true" allowfullscreen="true" sandbox="allow-forms allow-pointer-lock allow-popups allow-same-origin allow-scripts allow-modals"></iframe>
 		
 		<p>While the above example might not be that terrible, in a real program, the ball may have an image associated with it, 
@@ -342,6 +345,7 @@ print("ball2's position: x=%d, y=%d, z=%d" % (ball2.x, ball2.y, ball2.z))
 </code>
 		</pre>
 		-->
+        <br/>
 		<iframe height="800px" width="100%" src="https://repl.it/@ststraining/Structure-Example-Full?lite=true" scrolling="no" frameborder="no" allowtransparency="true" allowfullscreen="true" sandbox="allow-forms allow-pointer-lock allow-popups allow-same-origin allow-scripts allow-modals"></iframe>
         
         <h2>Classes</h2>
@@ -450,6 +454,7 @@ ball2.printDistanceTravelled()
 ball3.printDistanceTravelled()</code>
         </pre>
 		-->
+        <br/>
 		<iframe height="800px" width="100%" src="https://repl.it/@ststraining/Full-Object-Oriented-Ball-Example?lite=true" scrolling="no" frameborder="no" allowtransparency="true" allowfullscreen="true" sandbox="allow-forms allow-pointer-lock allow-popups allow-same-origin allow-scripts allow-modals"></iframe>
         
         </section>
@@ -509,7 +514,7 @@ player.throwBall()
 print(player.ball.x)</code>
 			</pre>
 		-->
-		
+		<br/>
 		<iframe height="800px" width="100%" src="https://repl.it/@ststraining/Encapsulation-Full-Example?lite=true" scrolling="no" frameborder="no" allowtransparency="true" allowfullscreen="true" sandbox="allow-forms allow-pointer-lock allow-popups allow-same-origin allow-scripts allow-modals"></iframe>
 		
 		<h2>Inheritance</h2>
@@ -559,6 +564,7 @@ print(beachBall.x)
 print(beachBall.color)</code>
 		</pre>
 		-->
+        <br/>
 		<iframe height="800px" width="100%" src="https://repl.it/@ststraining/Inheritance-Full-Example?lite=true" scrolling="no" frameborder="no" allowtransparency="true" allowfullscreen="true" sandbox="allow-forms allow-pointer-lock allow-popups allow-same-origin allow-scripts allow-modals"></iframe>
 		
 		<h2>"Is a" vs "Has a" relationship.</h2>
@@ -651,7 +657,7 @@ bBall.roll()
 gBall.roll()</code>
 		</pre>
 		-->
-		
+		<br/>
 		<iframe height="800px" width="100%" src="https://repl.it/@ststraining/Override-Full-Example?lite=true" scrolling="no" frameborder="no" allowtransparency="true" allowfullscreen="true" sandbox="allow-forms allow-pointer-lock allow-popups allow-same-origin allow-scripts allow-modals"></iframe>
 		
 		<p>Essentially, if you want to call the parent classes method in your child method you can do 
@@ -726,9 +732,76 @@ rollIt(ball)
 rollIt(cube)</code>
 		</pre>
 		-->
+        <br/>
 		<iframe height="800px" width="100%" src="https://repl.it/@ststraining/Polymorphic-Functions-Full-Example?lite=true" scrolling="no" frameborder="no" allowtransparency="true" allowfullscreen="true" sandbox="allow-forms allow-pointer-lock allow-popups allow-same-origin allow-scripts allow-modals"></iframe>
 		
 		</section>
+
+        <section class="topic">
+        <h1>Special Objects</h1>
+            <p>Moving on from the general idea of object oriented design, we will take a look at some interesting kinds of objects that see
+            widespread use in Python. </p>
+            <h2>Iterators</h2>
+                <p> A common useful feature of object oriented programming is the concept of iterators. In its simplest form, an iterator
+                is an object that implements the <span class="type-text">__next__()</span> method.</p>
+                <p>Iterators are obtained from an object called an iterable. An iterable object implements the <span class="type-text">__iter__()</span>
+                method which is intended to return an instance of an iterator.</p>
+            
+<pre>
+<code># Create an iterator class
+class myIterator():
+
+  # Define the __next__() method
+  def __next__(self):
+  
+    # This is how an iterator signals that the
+    # end has been reached
+    raise StopIteration
+
+# Create an iterable class
+class myIterable():
+
+  # Define the __iter__() method which returns
+  # an instance of an iterator
+  def __iter__(self):
+    return myIterator()</code>
+</pre>
+            
+                <p>
+                    Iterators are used very frequently in Python and in other languages. In fact, by this point, chances are you have used iterators, in some form or another, several times without explicitly intending to. The <span class="type-text">for</span> loop in Python takes an iterable as its righthand argument and this loop implicitly calls the <span class="type-text">__next__()</span> method of the returned iterator setting the lefthand variable to this value before every iteration.
+                </p>
+                
+                <br/>
+                <iframe height="400px" width="100%" src="https://repl.it/@ALEXANDERLEHMKU/1-10-Iterator-Example?lite=true" scrolling="no" frameborder="no" allowtransparency="true" allowfullscreen="true" sandbox="allow-forms allow-pointer-lock allow-popups allow-same-origin allow-scripts allow-modals"></iframe>
+            
+                <p>
+                    Iterators are a very useful feature because they allow the programmer to accomplish farily complicated tasks in a simple and elegant way. A good example of this is that they allow the programmer to break up the work involved in traversing a data structure into simple discreet steps. This means that you could be trying to loop through every element in a linked-list (a kind of data structure in which a node links to another node in a chain) and simply use the start of the list as the righthand argument of a <span class="type-text">for</span> loop. Another example is that they provide the potential to conveniently generate infinite sequences of items on the fly. This could be accomplished, for instance, through a <span class="type-text">__next__()</span> method which just returns the previous number plus one.
+                </p>
+            
+                <p>
+                    As we can see, iterators are a very useful tool to keep in mind when writing in Python.
+                </p>
+            
+            <h2>Generators</h2>
+                <p> Generators are very similar to functions in Python, but with a distinct difference: where functions return a completed result, generators yield small completed sections of the result with subsequent sections being retrieved in subsequent calls. Essentially, what this means is that generators, like iterators, allow the programmer to avoid doing large, costly operations all at once, and instead break apart the work of the operation into seperate smaller pieces.</p>
+            
+                <br/>
+                <iframe height="400px" width="100%" src="https://repl.it/@ALEXANDERLEHMKU/1-10-Generator-Example?lite=true" scrolling="no" frameborder="no" allowtransparency="true" allowfullscreen="true" sandbox="allow-forms allow-pointer-lock allow-popups allow-same-origin allow-scripts allow-modals"></iframe>
+            
+            <h2>Lambdas</h2>
+            
+                <p>Lambas in Python are a special kind of object. They act very similar to a function, but can be stored as variables and passed as parameters. There are some limitations to lambdas in Python, but they open a lot of new an interesting possibilities for programming which is more dynamic. Below is an example of a lambda expression.</p>
+<pre><code># Adds two numbers
+lambda x, y : x + y</code>
+</pre>
+                <p>
+                    As we can see, a lambda expression is made by using the keyword lambda followed by the parameters, then a colon, then the expression which the lambda is meant to evaluate to. Because lambda expressions are essentially simple functions that you can store in variables, they allow for quite a few possibilities. The programmer can pass lambda expressions as arguments to functions, store lambda expressions in objects, have an list of lambda expressions which can be sequentially applied, or use them any number of other possible applications. 
+                </p>
+            
+                <br/>
+                <iframe height="400px" width="100%" src="https://repl.it/@ALEXANDERLEHMKU/Simple-Lambda-Example?lite=true" scrolling="no" frameborder="no" allowtransparency="true" allowfullscreen="true" sandbox="allow-forms allow-pointer-lock allow-popups allow-same-origin allow-scripts allow-modals"></iframe>
+            
+        </section>
         
         <section class="topic">
         <h1>Modules</h1>
@@ -770,8 +843,9 @@ ball = Ball()</code>
 		<p>If your module is in the current directory of the program that you're running, you need only 
 		<span class="type-text">import [module_name]</span></p>
 		
-		<p>Below is an example of module usage:</p><br/>
-		
+		<p>Below is an example of module usage:</p>
+            
+        <br/>    
 		<iframe height="800px" width="100%" src="https://repl.it/@ststraining/Custom-Module-Example?lite=true" scrolling="no" frameborder="no" allowtransparency="true" allowfullscreen="true" sandbox="allow-forms allow-pointer-lock allow-popups allow-same-origin allow-scripts allow-modals"></iframe>
 		
 		
@@ -800,8 +874,9 @@ ball = Ball()</code>
 		or the Lynda.com page at <a href="https://www.lynda.com/Python-training-tutorials/415-0.html">https://www.lynda.com/Python-training-tutorials/415-0.html</a>.
 		If you have any further questions, STS has free one-on-one consultation services available for any problems you might encounter.</p>
 		
-		<p>Here is a simple example of a hangman game that uses the concepts we learned today. Why not play around with it and see how you could make it better?</p><br/>
-		
+		<p>Here is a simple example of a hangman game that uses the concepts we learned today. Why not play around with it and see how you could make it better?</p>
+            
+        <br/>
 		<iframe height="800px" width="100%" src="https://repl.it/@ststraining/SimpleHangmanExample?lite=true" scrolling="no" frameborder="no" allowtransparency="true" allowfullscreen="true" sandbox="allow-forms allow-pointer-lock allow-popups allow-same-origin allow-scripts allow-modals"></iframe>
 		
 		</section>
